@@ -22,7 +22,11 @@ This package uses *Semantic Versioning*. You can find out more about what this i
 
 ## Usage
 
-This package does not introduce any new user facing features or API. Please refer to the [original package docs](https://github.com/spatie/valuestore) for usage.
+Please refer to the [original package docs](https://github.com/spatie/valuestore) for general usage. The only new method is the ability to clear the cache:
+
+```php
+CachedValuestore::clearCache();
+```
 
 ## Contributing
 

@@ -3,6 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
+use Spatie\Valuestore\Valuestore;
 use TiMacDonald\CachedValuestore\CachedValuestore;
 
 class CachedValuestoreTest extends TestCase
@@ -136,5 +137,20 @@ class CachedValuestoreTest extends TestCase
 
         $this->assertEquals($valuestore1->get('test'), 'value');
         $this->assertEquals($valuestore2->get('test'), 'value');
+    }
+
+    function test_empty_cache_reads_values_from_file()
+    {
+        $cachedValuestore = CachedValuestore::make($this->filename, ['test' => 'original']);
+        $valuestore = Valuestore::make($this->filename, ['test' => 'updated']);
+
+        $this->assertEquals($cachedValuestore->get('test'), 'original');
+        CachedValuestore::clearCache();
+        $this->assertEquals($cachedValuestore->get('test'), 'updated');
+    }
+
+    protected function tearDown()
+    {
+        CachedValuestore::clearCache();
     }
 }
