@@ -9,13 +9,6 @@ class CachedValuestoreTest extends TestCase
 {
     protected $filename = './tests/test.json';
 
-    protected function setUp()
-    {
-        parent::setUp();
-
-        CachedValuestore::clearCache();
-    }
-
     function test_values_are_cached_locally_for_get_method()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
