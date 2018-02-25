@@ -1,0 +1,31 @@
+# Cached Valuestore
+
+This is an extension of [`spatie/valuestore`](https://github.com/spatie/valuestore) that introduces a local cache in the class. The original package reaches out the filesystem on every `get` call. This package caches the values locally.
+
+The cache is a static class property - so the cache will be up-to-date across mutliple instances in a codebase.
+
+Thanks to Spatie for provding such a great package ecosystem. This is an underloved package IMO.
+
+## Installation
+
+You can install using [composer](https://getcomposer.org/) from [Packagist](https://packagist.org/packages/timacdonald/cached-valuestore)
+
+```
+composer require cached-valuestore
+```
+
+## Versioning
+
+This package uses *Semantic Versioning*. You can find out more about what this is and why it matters by reading [the spec](http://semver.org) or for something more readable, check out [this post](https://laravel-news.com/building-apps-composer).
+
+## Usage
+
+This package does not introduce any new user facing features or API. Please refer to the [original package docs](https://github.com/spatie/valuestore) for usage.
+
+## Contributing
+
+Please feel free to suggest new ideas or send through pull requests to make this better. If you'd like to discuss the project, feel free to reach out on [Twitter](https://twitter.com/timacdonald87).
+
+## License
+
+This package is under the MIT License. See [LICENSE](https://github.com/timacdonald/cached-valuestore/blob/master/license) file for details.
