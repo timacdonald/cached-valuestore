@@ -13,7 +13,7 @@ Thanks to Spatie for provding such a great package ecosystem. This is an under a
 You can install using [composer](https://getcomposer.org/) from [Packagist](https://packagist.org/packages/timacdonald/cached-valuestore)
 
 ```
-composer require cached-valuestore
+composer require timacdonald/cached-valuestore
 ```
 
 ## Versioning
