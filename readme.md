@@ -1,5 +1,7 @@
 # Cached Valuestore
 
+[![Latest Stable Version](https://poser.pugx.org/timacdonald/cached-valuestore/v/stable)](https://packagist.org/packages/timacdonald/cached-valuestore) [![Total Downloads](https://poser.pugx.org/timacdonald/cached-valuestore/downloads)](https://packagist.org/packages/timacdonald/cached-valuestore) [![License](https://poser.pugx.org/timacdonald/cached-valuestore/license)](https://packagist.org/packages/timacdonald/cached-valuestore)
+
 This is an extension of [`spatie/valuestore`](https://github.com/spatie/valuestore) that introduces a local cache in the class. The original package reaches out the filesystem on every `get` call. This package caches the values locally.
 
 The cache is a static class property - so the cache will be up-to-date across mutliple instances in a codebase.
