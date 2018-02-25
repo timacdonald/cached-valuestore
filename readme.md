@@ -6,7 +6,7 @@ This is an extension of [`spatie/valuestore`](https://github.com/spatie/valuesto
 
 The cache is a static class property - so the cache will be up-to-date across mutliple instances in a codebase.
 
-Thanks to Spatie for provding such a great package ecosystem. This is an underloved package IMO.
+Thanks to Spatie for provding such a great package ecosystem. This is an under appreciated awesome package IMO.
 
 ## Installation
 
