@@ -127,4 +127,14 @@ class CachedValuestoreTest extends TestCase
 
         $this->assertEquals($valuestore->get('count'), 122);
     }
+
+    function test_cache_across_multiple_instances()
+    {
+        $valuestore1 = CachedValuestore::make($this->filename, ['test' => 'value']);
+        $valuestore2 = CachedValuestore::make($this->filename);
+        unlink($this->filename);
+
+        $this->assertEquals($valuestore1->get('test'), 'value');
+        $this->assertEquals($valuestore2->get('test'), 'value');
+    }
 }
