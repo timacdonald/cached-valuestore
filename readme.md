@@ -4,21 +4,17 @@
 
 This is an extension of [`spatie/valuestore`](https://github.com/spatie/valuestore) that introduces a local cache in the class. The original package reaches out the filesystem on every `get` call. This package caches the values locally.
 
-The cache is a static class property - so the cache will be up-to-date across mutliple instances in a codebase.
+The cache is a static class property - so the cache will be up-to-date across multiple instances in a code base.
 
-Thanks to Spatie for provding such a great package ecosystem. This is an under appreciated awesome package IMO.
+Thanks to Spatie for providing such a great package ecosystem. This is an under appreciated awesome package IMO.
 
 ## Installation
 
 You can install using [composer](https://getcomposer.org/) from [Packagist](https://packagist.org/packages/timacdonald/cached-valuestore)
 
 ```
-composer require timacdonald/cached-valuestore
+$ composer require timacdonald/cached-valuestore
 ```
-
-## Versioning
-
-This package uses *Semantic Versioning*. You can find out more about what this is and why it matters by reading [the spec](http://semver.org) or for something more readable, check out [this post](https://laravel-news.com/building-apps-composer).
 
 ## Usage
 
@@ -28,10 +24,6 @@ Please refer to the [original package docs](https://github.com/spatie/valuestore
 CachedValuestore::clearCache();
 ```
 
-## Contributing
+## Thanksware
 
-Please feel free to suggest new ideas or send through pull requests to make this better. If you'd like to discuss the project, feel free to reach out on [Twitter](https://twitter.com/timacdonald87).
-
-## License
-
-This package is under the MIT License. See [LICENSE](https://github.com/timacdonald/cached-valuestore/blob/master/license) file for details.
+You are free to use this package, but I ask that you reach out to someone (not me) who has previously, or is currently, maintaining or contributing to an open source library you are using in your project and thank them for their work. Consider your entire tech stack: packages, frameworks, languages, databases, operating systems, frontend, backend, etc.
