@@ -15,7 +15,7 @@ class CachedValuestoreTest extends TestCase
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
 
-        $this->assertEquals($valuestore->get('test'), 'value');
+        $this->assertSame($valuestore->get('test'), 'value');
     }
 
     function test_values_are_cached_locally_for_has_method()
@@ -31,7 +31,7 @@ class CachedValuestoreTest extends TestCase
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
 
-        $this->assertEquals($valuestore->all(), ['test' => 'value']);
+        $this->assertSame($valuestore->all(), ['test' => 'value']);
     }
 
     function test_values_are_cached_locally_for_all_starting_with_method()
@@ -39,7 +39,7 @@ class CachedValuestoreTest extends TestCase
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
 
-        $this->assertEquals($valuestore->allStartingWith('te'), ['test' => 'value']);
+        $this->assertSame($valuestore->allStartingWith('te'), ['test' => 'value']);
     }
 
     function test_cache_values_are_updated_after_put()
@@ -49,7 +49,7 @@ class CachedValuestoreTest extends TestCase
         $valuestore->put('test', 'updated');
         unlink($this->filename);
 
-        $this->assertEquals($valuestore->get('test'), 'updated');
+        $this->assertSame($valuestore->get('test'), 'updated');
     }
 
     function test_cache_values_are_updated_after_prepend()
@@ -59,7 +59,7 @@ class CachedValuestoreTest extends TestCase
         $valuestore->prepend('test', 'updated');
         unlink($this->filename);
 
-        $this->assertEquals($valuestore->get('test'), ['updated', 'original']);
+        $this->assertSame($valuestore->get('test'), ['updated', 'original']);
     }
 
     function test_cache_values_are_updated_after_push()
@@ -69,7 +69,7 @@ class CachedValuestoreTest extends TestCase
         $valuestore->push('test', 'updated');
         unlink($this->filename);
 
-        $this->assertEquals($valuestore->get('test'), ['original', 'updated']);
+        $this->assertSame($valuestore->get('test'), ['original', 'updated']);
     }
 
     function test_cache_values_are_updated_after_forget()
@@ -105,7 +105,7 @@ class CachedValuestoreTest extends TestCase
         unlink($this->filename);
         $value = $valuestore->pull('test');
 
-        $this->assertEquals($value, 'value');
+        $this->assertSame($value, 'value');
         $this->assertNull($valuestore->get('test'));
     }
 
@@ -116,7 +116,7 @@ class CachedValuestoreTest extends TestCase
         $valuestore->increment('count');
         unlink($this->filename);
 
-        $this->assertEquals($valuestore->get('count'), 124);
+        $this->assertSame($valuestore->get('count'), 124);
     }
 
     function test_cache_values_are_updated_after_decrement()
@@ -126,31 +126,16 @@ class CachedValuestoreTest extends TestCase
         $valuestore->decrement('count');
         unlink($this->filename);
 
-        $this->assertEquals($valuestore->get('count'), 122);
-    }
-
-    function test_cache_across_multiple_instances()
-    {
-        $valuestore1 = CachedValuestore::make($this->filename, ['test' => 'value']);
-        $valuestore2 = CachedValuestore::make($this->filename);
-        unlink($this->filename);
-
-        $this->assertEquals($valuestore1->get('test'), 'value');
-        $this->assertEquals($valuestore2->get('test'), 'value');
+        $this->assertSame($valuestore->get('count'), 122);
     }
 
     function test_empty_cache_reads_values_from_file()
     {
-        $cachedValuestore = CachedValuestore::make($this->filename, ['test' => 'original']);
-        $valuestore = Valuestore::make($this->filename, ['test' => 'updated']);
+        $valuestore = CachedValuestore::make($this->filename, ['test' => 'original']);
+        file_put_contents($this->filename, json_encode(['test' => 'updated']));
 
-        $this->assertEquals($cachedValuestore->get('test'), 'original');
-        CachedValuestore::clearCache();
-        $this->assertEquals($cachedValuestore->get('test'), 'updated');
-    }
-
-    protected function tearDown()
-    {
-        CachedValuestore::clearCache();
+        $this->assertSame($valuestore->get('test'), 'original');
+        $valuestore->clearCache();
+        $this->assertSame($valuestore->get('test'), 'updated');
     }
 }

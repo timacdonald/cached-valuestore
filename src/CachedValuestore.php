@@ -6,7 +6,7 @@ use Spatie\Valuestore\Valuestore;
 
 class CachedValuestore extends Valuestore
 {
-    protected static $cache;
+    protected $cache;
 
     /**
      * Get all values from the store.
@@ -15,7 +15,7 @@ class CachedValuestore extends Valuestore
      */
     public function all() : array
     {
-        return static::$cache ?? static::$cache = parent::all();
+        return $this->cache ?? $this->cache = parent::all();
     }
 
     /**
@@ -26,18 +26,18 @@ class CachedValuestore extends Valuestore
      */
     protected function setContent(array $values)
     {
-        parent::setContent(static::$cache = $values);
-
-        return $this;
+        return parent::setContent($this->cache = $values);
     }
 
     /**
      * Clears the local cache.
      *
-     * @return null
+     * @return $this
      */
-    public static function clearCache()
+    public function clearCache()
     {
-        static::$cache = null;
+        $this->cache = null;
+
+        return $this;
     }
 }
