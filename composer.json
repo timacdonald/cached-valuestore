@@ -1,19 +1,22 @@
 {
     "name": "timacdonald/cached-valuestore",
     "description": "An extension of spatie/valuestore with local caching.",
-    "keywords": ["valuestore", "cache"],
+    "keywords": [
+        "valuestore",
+        "cache"
+    ],
     "type": "utility",
     "license": "MIT",
     "authors": [
         {
             "name": "Tim MacDonald",
-            "email": "tim.mac7@me.com",
+            "email": "hello@timacdonald.me",
             "homepage": "https://timacdonald.me"
         }
     ],
     "autoload": {
         "psr-4": {
-          "TiMacDonald\\CachedValuestore\\": "src/"
+            "TiMacDonald\\CachedValuestore\\": "src/"
         }
     },
     "autoload-dev": {
@@ -22,10 +25,10 @@
         }
     },
     "require": {
-        "php" : "^7.0|^8.0",
-        "spatie/valuestore": "^1.2.1"
+        "php": "^7.0 || ^8.0",
+        "spatie/valuestore": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "^9.3"
     }
 }

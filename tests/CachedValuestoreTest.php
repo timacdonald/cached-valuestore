@@ -10,7 +10,7 @@ class CachedValuestoreTest extends TestCase
 {
     protected $filename = './tests/test.json';
 
-    function test_values_are_cached_locally_for_get_method()
+    public function test_values_are_cached_locally_for_get_method()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
@@ -18,7 +18,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertSame($valuestore->get('test'), 'value');
     }
 
-    function test_values_are_cached_locally_for_has_method()
+    public function test_values_are_cached_locally_for_has_method()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
@@ -26,7 +26,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertTrue($valuestore->has('test'));
     }
 
-    function test_values_are_cached_locally_for_all_method()
+    public function test_values_are_cached_locally_for_all_method()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
@@ -34,7 +34,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertSame($valuestore->all(), ['test' => 'value']);
     }
 
-    function test_values_are_cached_locally_for_all_starting_with_method()
+    public function test_values_are_cached_locally_for_all_starting_with_method()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
@@ -42,7 +42,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertSame($valuestore->allStartingWith('te'), ['test' => 'value']);
     }
 
-    function test_cache_values_are_updated_after_put()
+    public function test_cache_values_are_updated_after_put()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'original']);
         unlink($this->filename);
@@ -52,7 +52,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertSame($valuestore->get('test'), 'updated');
     }
 
-    function test_cache_values_are_updated_after_prepend()
+    public function test_cache_values_are_updated_after_prepend()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'original']);
         unlink($this->filename);
@@ -62,7 +62,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertSame($valuestore->get('test'), ['updated', 'original']);
     }
 
-    function test_cache_values_are_updated_after_push()
+    public function test_cache_values_are_updated_after_push()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'original']);
         unlink($this->filename);
@@ -72,7 +72,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertSame($valuestore->get('test'), ['original', 'updated']);
     }
 
-    function test_cache_values_are_updated_after_forget()
+    public function test_cache_values_are_updated_after_forget()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
@@ -81,7 +81,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertNull($valuestore->get('test'));
     }
 
-    function test_cache_values_are_updated_after_flush()
+    public function test_cache_values_are_updated_after_flush()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
@@ -90,7 +90,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertNull($valuestore->get('test'));
     }
 
-    function test_cache_values_are_updated_after_flush_starting_with()
+    public function test_cache_values_are_updated_after_flush_starting_with()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
@@ -99,7 +99,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertNull($valuestore->get('test'));
     }
 
-    function test_cache_values_are_updated_after_pull()
+    public function test_cache_values_are_updated_after_pull()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'value']);
         unlink($this->filename);
@@ -109,7 +109,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertNull($valuestore->get('test'));
     }
 
-    function test_cache_values_are_updated_after_increment()
+    public function test_cache_values_are_updated_after_increment()
     {
         $valuestore = CachedValuestore::make($this->filename, ['count' => 123]);
         unlink($this->filename);
@@ -119,7 +119,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertSame($valuestore->get('count'), 124);
     }
 
-    function test_cache_values_are_updated_after_decrement()
+    public function test_cache_values_are_updated_after_decrement()
     {
         $valuestore = CachedValuestore::make($this->filename, ['count' => 123]);
         unlink($this->filename);
@@ -129,7 +129,7 @@ class CachedValuestoreTest extends TestCase
         $this->assertSame($valuestore->get('count'), 122);
     }
 
-    function test_empty_cache_reads_values_from_file()
+    public function test_empty_cache_reads_values_from_file()
     {
         $valuestore = CachedValuestore::make($this->filename, ['test' => 'original']);
         file_put_contents($this->filename, json_encode(['test' => 'updated']));
