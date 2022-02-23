@@ -1,6 +1,6 @@
 {
     "name": "timacdonald/cached-valuestore",
-    "description": "An extension of spatie/valuestore with local caching.",
+    "description": "An extension of spatie/valuestore with in-memory caching.",
     "keywords": [
         "valuestore",
         "cache"
