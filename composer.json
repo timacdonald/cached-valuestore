@@ -25,7 +25,7 @@
         }
     },
     "require": {
-        "php": "^7.0 || ^8.0",
+        "php": "^8.0",
         "spatie/valuestore": "^1.0"
     },
     "require-dev": {
