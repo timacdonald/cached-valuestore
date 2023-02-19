@@ -1,5 +1,5 @@
 {
-    "name": "timacdonald/cached-valuestore",
+    "name": "axn/cached-valuestore",
     "description": "An extension of spatie/valuestore with in-memory caching.",
     "keywords": [
         "valuestore",
