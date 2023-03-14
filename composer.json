@@ -1,5 +1,5 @@
 {
-    "name": "timacdonald/cached-valuestore",
+    "name": "axn/cached-valuestore",
     "description": "An extension of spatie/valuestore with in-memory caching.",
     "keywords": [
         "valuestore",
@@ -25,7 +25,7 @@
         }
     },
     "require": {
-        "php": "^7.0 || ^8.0",
+        "php": "^8.0",
         "spatie/valuestore": "^1.0"
     },
     "require-dev": {

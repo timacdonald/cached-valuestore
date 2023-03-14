@@ -13,7 +13,7 @@ class CachedValuestore extends Valuestore
      *
      * @return array
      */
-    public function all() : array
+    public function all(): array
     {
         return $this->cache ?? $this->cache = parent::all();
     }
@@ -24,7 +24,7 @@ class CachedValuestore extends Valuestore
      * @param  array $values
      * @return $this
      */
-    protected function setContent(array $values)
+    protected function setContent(array $values): static
     {
         return parent::setContent($this->cache = $values);
     }
