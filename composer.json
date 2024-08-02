@@ -29,6 +29,6 @@
         "spatie/valuestore": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.3"
+        "phpunit/phpunit": "^11.3"
     }
 }
